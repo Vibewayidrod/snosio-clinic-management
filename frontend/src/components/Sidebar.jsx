@@ -1,4 +1,7 @@
+import { Link, useLocation } from 'react-router-dom';
+
 export default function Sidebar({ user, onLogout }) {
+  const location = useLocation();
   const links = [
     { label: 'Dashboard', path: '/' },
     { label: 'Patients', path: '/patients' },
@@ -22,9 +25,13 @@ export default function Sidebar({ user, onLogout }) {
 
       <nav className="nav-menu">
         {links.map((item) => (
-          <a key={item.path} href={item.path} className="nav-item">
+          <Link
+            key={item.path}
+            to={item.path}
+            className={location.pathname === item.path ? 'nav-item active' : 'nav-item'}
+          >
             {item.label}
-          </a>
+          </Link>
         ))}
       </nav>
 
