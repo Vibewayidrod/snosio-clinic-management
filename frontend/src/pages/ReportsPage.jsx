@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import api from '../services/api';
+import StatCard from '../components/StatCard';
 
 export default function ReportsPage() {
   const [report, setReport] = useState({ summary: {}, revenueByMonth: [] });
